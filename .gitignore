@@ -1,0 +1,12 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+
+# Sensitive / real incident data — never commit real incident data to git
+reports/real/
+*.sensitive
