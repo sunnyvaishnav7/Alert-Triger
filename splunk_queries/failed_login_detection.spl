@@ -1,0 +1,15 @@
+# Failed Login Detection Query
+# Detects multiple failed login attempts from the same IP
+
+index=windows EventCode=4625
+| stats count by src_ip, user
+| where count > 5
+| sort -count
+| table src_ip, user, count
+
+# Alternative: Time-based aggregation
+index=windows EventCode=4625
+| bucket _time span=10m
+| stats count by _time, src_ip
+| where count > 10
+| sort -count

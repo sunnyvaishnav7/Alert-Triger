@@ -1,0 +1,15 @@
+# DNS Suspicious Activity Detection Query
+# Detects high-volume queries to suspicious domains
+
+index=dns
+| where match(domain, "suspicious|malware|c2|base64")
+| stats count, dc(client_ip) as unique_clients by domain
+| where count > 50 OR unique_clients > 10
+| sort -count
+
+# Domain generation algorithm detection
+index=dns
+| rex field=domain "(?<subdomain>[a-z0-9]{10,})\.(?<tld>.*)"
+| where len(subdomain) > 15
+| stats count by subdomain, tld
+| where count > 20

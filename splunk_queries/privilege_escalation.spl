@@ -1,0 +1,19 @@
+# Privilege Escalation Detection Query
+# Monitors for suspicious privilege changes and admin access
+
+index=windows EventCode=4672
+| stats count by user, computer
+| where count > 5
+| sort -count
+
+# Correlation with successful logins
+index=windows (EventCode=4624 OR EventCode=4672)
+| transaction user maxspan=1h
+| where eventcount > 10
+| table user, eventcount, duration
+
+# Sudo privilege escalation in Linux
+index=linux sourcetype=syslog
+| search "sudo:" "USER=root"
+| stats count by user, src_ip
+| where count > 3

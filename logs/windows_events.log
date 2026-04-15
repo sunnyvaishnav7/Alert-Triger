@@ -1,0 +1,17 @@
+# Sample Windows Event Logs
+# Generated realistic logs for SOC analysis
+
+2024-01-15 08:30:15,4625,Security,Audit Failure,192.168.1.100,Administrator,Workstation01,Failed login attempt
+2024-01-15 08:30:20,4625,Security,Audit Failure,192.168.1.100,Administrator,Workstation01,Failed login attempt
+2024-01-15 08:30:25,4625,Security,Audit Failure,192.168.1.100,Administrator,Workstation01,Failed login attempt
+2024-01-15 08:30:30,4625,Security,Audit Failure,192.168.1.100,Administrator,Workstation01,Failed login attempt
+2024-01-15 08:30:35,4625,Security,Audit Failure,192.168.1.100,Administrator,Workstation01,Failed login attempt
+2024-01-15 08:31:15,4624,Security,Audit Success,192.168.1.50,jsmith,Workstation02,Successful login
+2024-01-15 08:32:45,4672,Security,Audit Success,192.168.1.50,jsmith,Workstation02,Special privileges assigned
+2024-01-15 08:35:12,4625,Security,Audit Failure,10.0.0.150,root,Server01,Failed login attempt
+2024-01-15 08:35:18,4625,Security,Audit Failure,10.0.0.150,root,Server01,Failed login attempt
+2024-01-15 08:35:22,4625,Security,Audit Failure,10.0.0.150,root,Server01,Failed login attempt
+2024-01-15 08:35:28,4625,Security,Audit Failure,10.0.0.150,root,Server01,Failed login attempt
+2024-01-15 08:35:33,4625,Security,Audit Failure,10.0.0.150,root,Server01,Failed login attempt
+2024-01-15 08:35:38,4625,Security,Audit Failure,10.0.0.150,root,Server01,Failed login attempt
+2024-01-15 08:40:15,4624,Security,Audit Success,192.168.1.75,admin,Workstation03,Successful login

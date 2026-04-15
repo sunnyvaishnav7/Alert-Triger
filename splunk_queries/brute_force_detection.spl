@@ -1,0 +1,12 @@
+# Brute Force Attack Detection Query
+# Identifies coordinated brute force attacks across multiple accounts
+
+index=windows EventCode=4625
+| stats dc(user) as unique_users, count by src_ip
+| where unique_users > 3 AND count > 20
+| sort -count
+
+# Advanced: With time correlation
+index=windows EventCode=4625
+| timechart span=5m count by src_ip
+| where count > 15

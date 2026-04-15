@@ -1,0 +1,17 @@
+# Sample Linux Auth Logs
+# Realistic SSH authentication logs
+
+Jan 15 08:30:15 server01 sshd[12345]: Failed password for root from 192.168.1.100 port 22 ssh2
+Jan 15 08:30:20 server01 sshd[12346]: Failed password for root from 192.168.1.100 port 22 ssh2
+Jan 15 08:30:25 server01 sshd[12347]: Failed password for root from 192.168.1.100 port 22 ssh2
+Jan 15 08:30:30 server01 sshd[12348]: Failed password for root from 192.168.1.100 port 22 ssh2
+Jan 15 08:30:35 server01 sshd[12349]: Failed password for root from 192.168.1.100 port 22 ssh2
+Jan 15 08:31:15 server01 sshd[12350]: Accepted password for jsmith from 192.168.1.50 port 22 ssh2
+Jan 15 08:32:45 server01 sudo: jsmith : TTY=pts/0 ; PWD=/home/jsmith ; USER=root ; COMMAND=/bin/bash
+Jan 15 08:35:12 server02 sshd[23456]: Failed password for admin from 10.0.0.150 port 22 ssh2
+Jan 15 08:35:18 server02 sshd[23457]: Failed password for admin from 10.0.0.150 port 22 ssh2
+Jan 15 08:35:22 server02 sshd[23458]: Failed password for admin from 10.0.0.150 port 22 ssh2
+Jan 15 08:35:28 server02 sshd[23459]: Failed password for admin from 10.0.0.150 port 22 ssh2
+Jan 15 08:35:33 server02 sshd[23460]: Failed password for admin from 10.0.0.150 port 22 ssh2
+Jan 15 08:35:38 server02 sshd[23461]: Failed password for admin from 10.0.0.150 port 22 ssh2
+Jan 15 08:40:15 server03 sshd[34567]: Accepted password for admin from 192.168.1.75 port 22 ssh2
