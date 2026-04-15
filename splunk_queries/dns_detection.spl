@@ -1,0 +1,46 @@
+# DNS Suspicious Activity Detection - Production Splunk Query
+# Detects DNS tunneling, DGA, and command & control communications
+
+# Domain Generation Algorithm (DGA) detection
+index=dns
+| rex field=query "(?<subdomain>[a-z0-9-]{15,})\.(?<domain>.*)"
+| where len(subdomain) > 20
+| stats count dc(client_ip) as unique_clients by subdomain, domain
+| where count > 5 OR unique_clients > 3
+| sort -count
+
+# DNS tunneling detection (high query volume to suspicious domains)
+index=dns
+| where match(query, "\.onion$|\.bit$|pastebin\.com$|raw\.githubusercontent\.com$")
+| stats count dc(client_ip) as unique_clients by query
+| where count > 10 OR unique_clients > 5
+| sort -count
+
+# Unusual query type patterns
+index=dns
+| stats count by query_type, client_ip
+| eventstats avg(count) as avg_queries by query_type
+| where count > (avg_queries * 5) AND query_type!="A" AND query_type!="AAAA"
+| sort -count
+
+# NXDOMAIN ratio analysis (potential DGA or scanning)
+index=dns response_code=NXDOMAIN
+| stats count as nx_count by client_ip
+| appendcols [search index=dns | stats count as total_count by client_ip]
+| eval nx_ratio = nx_count / total_count
+| where nx_ratio > 0.3 AND total_count > 100
+| sort -nx_ratio
+
+# Base64 encoded subdomain detection
+index=dns
+| rex field=query "(?<b64>[A-Za-z0-9+/]{20,}={0,2})\..*"
+| where len(b64) > 15
+| stats count by b64, client_ip
+| where count > 3
+| sort -count
+
+# Fast flux domain detection
+index=dns
+| stats dc(response_ip) as unique_ips by query
+| where unique_ips > 10
+| sort -unique_ips

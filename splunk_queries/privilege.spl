@@ -1,0 +1,45 @@
+# Privilege Escalation Detection - Production Splunk Query
+# Monitors for suspicious privilege changes and lateral movement
+
+# Rapid privilege escalation detection
+index=windows EventCode=4672
+| stats count as priv_events by user, host
+| eventstats avg(priv_events) as avg_priv by host
+| where priv_events > (avg_priv * 3) AND priv_events > 5
+| sort -priv_events
+
+# Suspicious privilege combinations
+index=windows EventCode=4672
+| rex field=PrivilegeList "(?<priv>SeDebugPrivilege|SeTakeOwnershipPrivilege|SeTcbPrivilege|SeCreateTokenPrivilege)"
+| stats count by user, priv, host
+| where count > 2
+| sort -count
+
+# Sudo privilege escalation in Linux
+index=linux sourcetype=syslog "sudo:" "USER=root"
+| stats count as sudo_events by user, src_ip, host
+| eventstats avg(sudo_events) as avg_sudo by host
+| where sudo_events > (avg_sudo * 2) AND sudo_events > 3
+| sort -sudo_events
+
+# Cross-system privilege correlation
+index=windows EventCode=4672 OR index=linux sourcetype=syslog "sudo"
+| eval user=coalesce(user, User)
+| transaction user maxspan=30m
+| where eventcount > 5
+| table user, eventcount, duration, host, src_ip
+
+# Unusual time privilege changes
+index=windows EventCode=4672
+| eval hour=strftime(_time, "%H")
+| where hour < 6 OR hour > 18
+| stats count by user, hour
+| where count > 3
+| sort -count
+
+# Service account privilege abuse
+index=windows EventCode=4672
+| where match(user, "svc_|service_|system_|admin")
+| stats count by user, PrivilegeList
+| where count > 10
+| sort -count

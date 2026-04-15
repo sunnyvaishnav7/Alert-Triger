@@ -1,0 +1,16 @@
+# HTTP Access Logs
+# Apache/Nginx style access logs from production web servers
+
+192.168.1.100 - - [15/Jan/2024:08:30:15 +0000] "GET /admin/login.php HTTP/1.1" 401 1234 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+192.168.1.100 - - [15/Jan/2024:08:30:20 +0000] "POST /admin/login.php HTTP/1.1" 401 1234 "username=admin&password=wrong" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+192.168.1.100 - - [15/Jan/2024:08:30:25 +0000] "POST /admin/login.php HTTP/1.1" 401 1234 "username=admin&password=wrong2" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+192.168.1.100 - - [15/Jan/2024:08:30:30 +0000] "POST /admin/login.php HTTP/1.1" 401 401 1234 "username=admin&password=wrong3" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+192.168.1.100 - - [15/Jan/2024:08:30:35 +0000] "POST /admin/login.php HTTP/1.1" 401 1234 "username=admin&password=wrong4" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+192.168.1.50 - - [15/Jan/2024:08:31:15 +0000] "GET /dashboard HTTP/1.1" 200 5678 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+10.0.0.150 - - [15/Jan/2024:08:35:12 +0000] "GET /wp-admin/ HTTP/1.1" 404 234 "-" "sqlmap/1.6.5"
+10.0.0.150 - - [15/Jan/2024:08:35:18 +0000] "POST /wp-admin/admin-ajax.php HTTP/1.1" 500 1234 "-" "sqlmap/1.6.5"
+10.0.0.150 - - [15/Jan/2024:08:35:22 +0000] "GET /wp-content/uploads/shell.php HTTP/1.1" 200 3456 "-" "sqlmap/1.6.5"
+192.168.1.75 - - [15/Jan/2024:08:40:15 +0000] "GET /api/v1/users HTTP/1.1" 200 7890 "-" "PostmanRuntime/7.32.0"
+10.0.0.200 - - [15/Jan/2024:08:45:30 +0000] "GET /admin HTTP/1.1" 401 123 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
+10.0.0.200 - - [15/Jan/2024:08:45:35 +0000] "POST /admin/login HTTP/1.1" 401 234 "user=admin&pass=wrong" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
+172.16.0.50 - - [15/Jan/2024:08:50:15 +0000] "GET /api/v1/data HTTP/1.1" 200 4567 "-" "Python-urllib/3.8"

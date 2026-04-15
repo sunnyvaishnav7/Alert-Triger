@@ -1,0 +1,23 @@
+# DNS Query Logs
+# Production DNS server logs with realistic queries
+
+2024-01-15 08:30:15 client1.example.com 192.168.1.100 A www.google.com NOERROR
+2024-01-15 08:30:16 client1.example.com 192.168.1.100 AAAA www.google.com NOERROR
+2024-01-15 08:30:17 client1.example.com 192.168.1.100 A api.github.com NOERROR
+2024-01-15 08:30:18 client1.example.com 192.168.1.100 A suspicious-domain-abc123.example.com NOERROR
+2024-01-15 08:30:19 client1.example.com 192.168.1.100 A suspicious-domain-def456.example.com NOERROR
+2024-01-15 08:30:20 client1.example.com 192.168.1.100 A suspicious-domain-ghi789.example.com NOERROR
+2024-01-15 08:30:21 client1.example.com 192.168.1.100 A suspicious-domain-jkl012.example.com NOERROR
+2024-01-15 08:30:22 client1.example.com 192.168.1.100 A suspicious-domain-mno345.example.com NOERROR
+2024-01-15 08:30:23 client1.example.com 192.168.1.100 A suspicious-domain-pqr678.example.com NOERROR
+2024-01-15 08:30:24 client1.example.com 192.168.1.100 A suspicious-domain-stu901.example.com NOERROR
+2024-01-15 08:31:15 client2.example.com 192.168.1.50 A mail.example.com NOERROR
+2024-01-15 08:32:45 client2.example.com 192.168.1.50 TXT _dmarc.example.com NOERROR
+2024-01-15 08:35:12 client3.example.com 10.0.0.150 A update.windows.com NOERROR
+2024-01-15 08:35:13 client3.example.com 10.0.0.150 A suspicious-malware-c2.example.com NOERROR
+2024-01-15 08:35:14 client3.example.com 10.0.0.150 A suspicious-malware-c2.example.com NOERROR
+2024-01-15 08:35:15 client3.example.com 10.0.0.150 A suspicious-malware-c2.example.com NOERROR
+2024-01-15 08:40:15 client4.example.com 192.168.1.75 A docs.microsoft.com NOERROR
+2024-01-15 08:45:20 client5.example.com 10.0.0.200 A very-long-random-subdomain-that-looks-like-dga-abcdef123456.example.com NOERROR
+2024-01-15 08:45:21 client5.example.com 10.0.0.200 A another-suspicious-domain-xyz789.example.com NOERROR
+2024-01-15 08:45:22 client5.example.com 10.0.0.200 A malware-c2-server-hidden.example.com NOERROR

@@ -1,0 +1,35 @@
+# Brute Force Attack Detection - Production Splunk Query
+# Detects coordinated brute force attacks across multiple accounts and systems
+
+# Basic failed login detection with IP correlation
+index=windows EventCode=4625
+| stats count as failures by src_ip, user, host
+| where failures > 5
+| sort -failures
+
+# Advanced: Time-based clustering with velocity analysis
+index=windows EventCode=4625
+| bucket _time span=5m
+| stats count as failures dc(user) as unique_users by _time, src_ip
+| where failures > 10 OR unique_users > 3
+| sort -_time
+
+# Cross-system correlation (Windows + Linux)
+index=windows EventCode=4625 OR index=linux sourcetype=syslog "Failed password"
+| eval src_ip=coalesce(src_ip, IpAddress)
+| stats count as failures by src_ip, host
+| where failures > 15
+| sort -failures
+
+# Account lockout correlation
+index=windows (EventCode=4625 OR EventCode=4740)
+| transaction user maxspan=1h
+| where eventcount > 20
+| table user, eventcount, duration, src_ip
+
+# Geographic correlation (if geo data available)
+index=windows EventCode=4625
+| iplocation src_ip
+| stats count by Country, src_ip
+| where count > 50
+| sort -count

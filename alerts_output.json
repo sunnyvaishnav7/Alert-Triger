@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-04-15T10:00:16.096742",
+  "total_alerts": 2,
+  "detection_results": {
+    "brute_force": [
+      {
+        "type": "Brute Force Attack",
+        "severity": "HIGH",
+        "source": "IP 192.168.1.100",
+        "details": "5 failed login attempts within 10 minutes",
+        "timestamp": "2026-04-15T10:00:16.072109",
+        "action": "Block IP, investigate source, reset affected accounts",
+        "evidence": {
+          "ip": "192.168.1.100",
+          "attempts": 5,
+          "time_window": "2024-01-15 08:30:15+00:00 to 2024-01-15 08:40:15+00:00",
+          "total_failures": 5
+        }
+      }
+    ],
+    "dns_anomaly": [
+      {
+        "type": "DNS Anomaly Detected",
+        "severity": "MEDIUM",
+        "source": "Domain suspicious-malware-c2.example.com",
+        "details": "Suspicious DNS activity detected. Risk factors: High query volume: 3 queries",
+        "timestamp": "2024-01-15 08:35:13",
+        "action": "Block domain, investigate client systems, check for malware",
+        "evidence": {
+          "domain": "suspicious-malware-c2.example.com",
+          "query_count": 3,
+          "unique_clients": 1,
+          "unique_ips": 1,
+          "query_types": [
+            "A"
+          ],
+          "risk_factors": [
+            "High query volume: 3 queries"
+          ]
+        }
+      }
+    ],
+    "privilege_escalation": [],
+    "multiple_ip_login": []
+  },
+  "alerts": [
+    {
+      "type": "Brute Force Attack",
+      "severity": "HIGH",
+      "source": "IP 192.168.1.100",
+      "details": "5 failed login attempts within 10 minutes",
+      "timestamp": "2026-04-15T10:00:16.072109",
+      "action": "Block IP, investigate source, reset affected accounts",
+      "evidence": {
+        "ip": "192.168.1.100",
+        "attempts": 5,
+        "time_window": "2024-01-15 08:30:15+00:00 to 2024-01-15 08:40:15+00:00",
+        "total_failures": 5
+      }
+    },
+    {
+      "type": "DNS Anomaly Detected",
+      "severity": "MEDIUM",
+      "source": "Domain suspicious-malware-c2.example.com",
+      "details": "Suspicious DNS activity detected. Risk factors: High query volume: 3 queries",
+      "timestamp": "2024-01-15 08:35:13",
+      "action": "Block domain, investigate client systems, check for malware",
+      "evidence": {
+        "domain": "suspicious-malware-c2.example.com",
+        "query_count": 3,
+        "unique_clients": 1,
+        "unique_ips": 1,
+        "query_types": [
+          "A"
+        ],
+        "risk_factors": [
+          "High query volume: 3 queries"
+        ]
+      }
+    }
+  ]
+}

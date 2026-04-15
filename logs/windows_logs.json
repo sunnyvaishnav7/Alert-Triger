@@ -1,0 +1,99 @@
+[
+  {
+    "EventID": 4625,
+    "TimeCreated": {
+      "SystemTime": "2024-01-15T08:30:15.000Z"
+    },
+    "IpAddress": "192.168.1.100",
+    "TargetUserName": "Administrator",
+    "WorkstationName": "WORKSTATION01",
+    "LogonType": 3,
+    "FailureReason": "Unknown user name or bad password"
+  },
+  {
+    "EventID": 4625,
+    "TimeCreated": {
+      "SystemTime": "2024-01-15T08:30:20.000Z"
+    },
+    "IpAddress": "192.168.1.100",
+    "TargetUserName": "Administrator",
+    "WorkstationName": "WORKSTATION01",
+    "LogonType": 3,
+    "FailureReason": "Unknown user name or bad password"
+  },
+  {
+    "EventID": 4625,
+    "TimeCreated": {
+      "SystemTime": "2024-01-15T08:30:25.000Z"
+    },
+    "IpAddress": "192.168.1.100",
+    "TargetUserName": "Administrator",
+    "WorkstationName": "WORKSTATION01",
+    "LogonType": 3,
+    "FailureReason": "Unknown user name or bad password"
+  },
+  {
+    "EventID": 4625,
+    "TimeCreated": {
+      "SystemTime": "2024-01-15T08:30:30.000Z"
+    },
+    "IpAddress": "192.168.1.100",
+    "TargetUserName": "Administrator",
+    "WorkstationName": "WORKSTATION01",
+    "LogonType": 3,
+    "FailureReason": "Unknown user name or bad password"
+  },
+  {
+    "EventID": 4625,
+    "TimeCreated": {
+      "SystemTime": "2024-01-15T08:30:35.000Z"
+    },
+    "IpAddress": "192.168.1.100",
+    "TargetUserName": "Administrator",
+    "WorkstationName": "Administrator",
+    "LogonType": 3,
+    "FailureReason": "Unknown user name or bad password"
+  },
+  {
+    "EventID": 4624,
+    "TimeCreated": {
+      "SystemTime": "2024-01-15T08:31:15.000Z"
+    },
+    "IpAddress": "192.168.1.50",
+    "TargetUserName": "jsmith",
+    "WorkstationName": "WORKSTATION02",
+    "LogonType": 10,
+    "LogonProcessName": "User32"
+  },
+  {
+    "EventID": 4672,
+    "TimeCreated": {
+      "SystemTime": "2024-01-15T08:32:45.000Z"
+    },
+    "SubjectUserName": "jsmith",
+    "SubjectDomainName": "DOMAIN",
+    "PrivilegeList": "SeDebugPrivilege, SeTakeOwnershipPrivilege"
+  },
+  {
+    "EventID": 4625,
+    "TimeCreated": {
+      "SystemTime": "2024-01-15T08:35:12.000Z"
+    },
+    "IpAddress": "10.0.0.150",
+    "TargetUserName": "root",
+    "WorkstationName": "SERVER01",
+    "LogonType": 3,
+    "FailureReason": "Unknown user name or bad password"
+  },
+  {
+    "EventID": 4624,
+    "TimeCreated": {
+      "SystemTime": "2024-01-15T08:40:15.000Z"
+    },
+    "IpAddress": "192.168.1.75",
+    "TargetUserName": "admin",
+    "WorkstationName": "WORKSTATION03",
+    "LogonType": 10,
+    "LogonProcessName": "User32"
+  }
+]
