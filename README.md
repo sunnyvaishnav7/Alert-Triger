@@ -84,4 +84,4 @@ MIT License — Free to use and adapt for your SOC environment.
 ---
 
 > **Maintained by:** SOC L1 Team  
-> **Last Updated:** 2025
+> **Last Updated:** 2026

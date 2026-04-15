@@ -19,8 +19,8 @@ Thank you for contributing! This project is maintained by SOC analysts, for SOC 
 ### 1. Fork the Repository
 Click the **Fork** button on GitHub and clone your fork locally:
 ```bash
-git clone :
-cd soc-l1-alert-triage
+git clone : https://github.com/sunnyvaishnav7/Alert-Triger.git
+cd Alert-Triger
 ```
 
 ### 2. Create a Branch
