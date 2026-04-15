@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-15T10:00:16.096742",
+  "timestamp": "2026-04-15T10:05:26.650691",
   "total_alerts": 2,
   "detection_results": {
     "brute_force": [
@@ -8,7 +8,7 @@
         "severity": "HIGH",
         "source": "IP 192.168.1.100",
         "details": "5 failed login attempts within 10 minutes",
-        "timestamp": "2026-04-15T10:00:16.072109",
+        "timestamp": "2026-04-15T10:05:26.617380",
         "action": "Block IP, investigate source, reset affected accounts",
         "evidence": {
           "ip": "192.168.1.100",
@@ -49,7 +49,7 @@
       "severity": "HIGH",
       "source": "IP 192.168.1.100",
       "details": "5 failed login attempts within 10 minutes",
-      "timestamp": "2026-04-15T10:00:16.072109",
+      "timestamp": "2026-04-15T10:05:26.617380",
       "action": "Block IP, investigate source, reset affected accounts",
       "evidence": {
         "ip": "192.168.1.100",
